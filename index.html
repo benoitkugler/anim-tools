@@ -21,7 +21,7 @@
         <div class="navbar navbar-dark bg-primary shadow-sm">
             <div class="container d-flex justify-content-between">
                 <span href="#" class="navbar-brand d-flex align-items-center">
-                    <strong>Outils pour la formation d'équipe</strong>
+                    <strong>Outils pour la formation d'équipes</strong>
                 </span>
             </div>
         </div>
@@ -29,7 +29,8 @@
     <div class="container my-2">
         <div class="card my-2">
             <div class="card-body text-info">
-                Cette page propose un utilitaire pour former des équipes à partir d'une liste de participants.
+                Cette page propose un utilitaire pour former des équipes à partir d'une liste de participants. <br />
+                On cherche à équilibrer les partitions de chacun, en gardant des équipes distinctes.
             </div>
         </div>
         <form id="params" novalidate>
@@ -44,8 +45,8 @@
                             <input type="file" class="form-control-file" id="listeCsv" accept=".csv" required> -->
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="listeCsv" accept=".csv" required>
-                                <label class="custom-file-label" for="listeCsv">Liste des participants (.txt)</label>
+                                <input type="file" class="custom-file-input" id="listeCsv" accept=".csv, .txt" required>
+                                <label class="custom-file-label" for="listeCsv">Liste des participants </label>
                                 <div class="invalid-feedback">
                                     Veuillez importer une liste (un participant par ligne).
                                 </div>
@@ -75,16 +76,43 @@
                             <label for="tailleEquipe">Taille d'une équipe</label>
                             <input type="number" class="form-control" id="tailleEquipe" min="1" required>
                             <div class="invalid-feedback">
-                                Veuillez préciser le nombre souhaité de participants par d'équipe.
+                                Veuillez préciser le nombre souhaité de participants par équipe.
                             </div>
                         </div>
                     </div>
-                    <div class="row p-3">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Générer</button>
+                    <div class="alert alert-danger my-2" role="alert" id="errorNombreParts" style="visibility: hidden">
+                        La taille d'une équipe doit être inférieure au nombre de participants.
+                    </div>
+                    <div class="row px-3">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            <div id="spinner" style="display: inline-block; visibility: hidden">
+                                <div class="spinner-grow spinner-grow-sm mb-1 " role="status"></div>
+                                <div class="spinner-grow spinner-grow-sm mb-1 " role="status"></div>
+                                <div class="spinner-grow spinner-grow-sm mb-1 mr-2" role="status"></div>
+                            </div>
+                            Générer
+                        </button>
                     </div>
                 </div>
             </div>
         </form>
+
+        <div class="card" id="results" style="visibility: hidden">
+            <div class="card-body">
+                <h4 class="card-title">Résultats</h4>
+                <div class="alert alert-info">
+                    Indice de répartition (le plus faible est le mieux) : <span id="variance"></span>
+                </div>
+                <h5 class="card-subtitle">Equipes :</h5>
+            </div>
+
+            <div class="card-body bg-light m-2">
+
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
     </div>
     <script src='main.js'></script>
 
