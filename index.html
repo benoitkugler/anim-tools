@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset='utf-8'>
@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 
-    <script src='main.js'></script>
 </head>
 
 <body>
@@ -31,44 +32,62 @@
                 Cette page propose un utilitaire pour former des équipes à partir d'une liste de participants.
             </div>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-subtitle">Importer les participants</h4>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm">
-                        <label for="listeCsv">Liste des participants (.csv)</label>
-                        <input type="file" class="form-control-file" id="listeCsv" accept=".csv">
-                    </div>
-                    <div class="col-sm mt-2">
-                        <div class="alert alert-success my-auto" role="alert" id="infoImport">10 participants importés
+        <form id="params" novalidate>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-subtitle">Importer les participants</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm mt-1">
+                            <!-- <label for="listeCsv">Liste des participants (.txt)</label>
+                            <input type="file" class="form-control-file" id="listeCsv" accept=".csv" required> -->
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="listeCsv" accept=".csv" required>
+                                <label class="custom-file-label" for="listeCsv">Liste des participants (.txt)</label>
+                                <div class="invalid-feedback">
+                                    Veuillez importer une liste (un participant par ligne).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="alert" role="alert" id="infoImport" style="visibility: hidden">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card my-2">
-            <div class="card-body">
-                <h4 class="card-subtitle">Générer les équipes</h4>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm">
-                        <label for="nbEquipes">Nombre d'équipes</label>
-                        <input type="number" class="form-control" id="nbEquipes" min="1">
+            <div class="card my-2">
+                <div class="card-body">
+                    <h4 class="card-subtitle">Générer les équipes</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="nbEquipes">Nombre d'équipes</label>
+                            <input type="number" class="form-control" id="nbEquipes" min="1" required>
+                            <div class="invalid-feedback">
+                                Veuillez préciser le nombre d'équipes souhaitées.
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <label for="tailleEquipe">Taille d'une équipe</label>
+                            <input type="number" class="form-control" id="tailleEquipe" min="1" required>
+                            <div class="invalid-feedback">
+                                Veuillez préciser le nombre souhaité de participants par d'équipe.
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm">
-                        <label for="tailleEquipe">Taille d'une équipe</label>
-                        <input type="number" class="form-control" id="tailleEquipe" min="1">
+                    <div class="row p-3">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Générer</button>
                     </div>
                 </div>
-                <div class="row p-3">
-                    <button class="btn btn-primary btn-lg btn-block" type="button">Générer</button>
-                </div>
             </div>
-        </div>
+        </form>
     </div>
+    <script src='main.js'></script>
+
 </body>
 
 </html>
