@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Outils d'animation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-primary shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <span href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Outils pour la formation d'équipe</strong>
+                </span>
+            </div>
+        </div>
+    </header>
+    <div class="container my-2">
+        <div class="card my-2">
+            <div class="card-body text-info">
+                Cette page propose un utilitaire pour former des équipes à partir d'une liste de participants.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-subtitle">Importer les participants</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="listeCsv">Liste des participants (.csv)</label>
+                        <input type="file" class="form-control-file" id="listeCsv" accept=".csv">
+                    </div>
+                    <div class="col-sm mt-2">
+                        <div class="alert alert-success my-auto" role="alert" id="infoImport">10 participants importés
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card my-2">
+            <div class="card-body">
+                <h4 class="card-subtitle">Générer les équipes</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="nbEquipes">Nombre d'équipes</label>
+                        <input type="number" class="form-control" id="nbEquipes" min="1">
+                    </div>
+                    <div class="col-sm">
+                        <label for="tailleEquipe">Taille d'une équipe</label>
+                        <input type="number" class="form-control" id="tailleEquipe" min="1">
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <button class="btn btn-primary btn-lg btn-block" type="button">Générer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
