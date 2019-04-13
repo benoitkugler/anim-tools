@@ -30,7 +30,7 @@
         <div class="card my-2">
             <div class="card-body text-info">
                 Cette page propose un utilitaire pour former des équipes à partir d'une liste de participants. <br />
-                On cherche à équilibrer les partitions de chacun, en gardant des équipes distinctes.
+                On cherche à équilibrer les participations de chacun, en gardant des équipes distinctes.
             </div>
         </div>
         <form id="params" novalidate>
@@ -91,6 +91,9 @@
                                 <div class="spinner-grow spinner-grow-sm mb-1 mr-2" role="status"></div>
                             </div>
                             Générer
+                            <div style="display: inline-block; visibility: hidden; font-style: italic; font-size: 0.8em;"  id="nbChoix">
+                            (Choix parmi  <span id="eq"></span> equipes et <span id="rep"></span> répartitions.)
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -102,6 +105,8 @@
                 <h4 class="card-title">Résultats</h4>
                 <div class="alert alert-info">
                     Indice de répartition (le plus faible est le mieux) : <span id="variance"></span>
+                    <h6>Participations</h6>
+                    <div id="occurences"></div>
                 </div>
                 <h5 class="card-subtitle">Equipes :</h5>
             </div>
